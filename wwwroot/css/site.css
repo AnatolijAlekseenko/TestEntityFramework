@@ -1,71 +1,131 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿html{ height:100%; margin:0; padding:0; }
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+table.text {
+    width: 100%; /* Ширина таблицы */
+    border-spacing: 0; /* Расстояние между ячейками */
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+table.text td {
+    width: 50%; /* Ширина ячеек */
+    vertical-align: top; /* Выравнивание по верхнему краю */
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+td.rightcol { /* Правая ячейка */
+    text-align: right; /* Выравнивание по правому краю */
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: 5px solid black;
+    padding: 20px;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+#con1 {
+    width: 150px;
+    border: 2px solid black;
+    background-color: green;
+    height: 150px;
+    border-right: 0px;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+#con2 {
+    width: 100%;
+    border: 2px solid black;
+    background-color: yellow;
+    height: 300px;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+#con3 {
+    width: 150px;
+    border: 2px solid black;
+    border-left: 0px;
+    background-color: green;
+    height: 150px;
+}
+
+div.wrapper {
+    width: 450px;
+}
+
+.test {
+    height: 200px;
+    width: 200px;
+}
+
+
+div.left_block {
+    float: left;
+    width: 200px;
+}
+
+div.right_block {
+    float: right;
+    width: 200px;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+ul.hr li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 5px; /* Отступ слева */
+    border: 1px solid #000; /* Рамка вокруг текста */
+    padding: 3px; /* Поля вокруг текста */
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  height:60%;
+  font-family:'Trebuchet MS',  'Arial', 'Helvetica', 'sans-serif';
+  font-size:10pt;
+  background-color: LightGray;
+  line-height:1.6em;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+h1{ font-size:1.6em; }
+h2{ font-size:1.4em; }
+
+#container{
+   min-height:100%;
+   position:relative;
+   left:10%;
 }
+
+#header{
+  padding:8px;
+  width:80%;
+  background-color:#4b6c9e;
+  color:White;
+}
+
+#main{
+  width:80%;
+  padding: 8px;
+  padding-bottom:4em;
+  background-color:White;
+}
+
+#footer{
+  width:80%;
+  height:2em;
+  padding:8px;
+  margin-top:-2em;
+  background-color:LightGray;
+}
+
+.head { background-color: #E8E8E8; font-weight: bold; color: #FFF; }
+.grid th, .grid td { border: 1px solid #C0C0C0; padding: 5px; }
+.alt { background-color: #E8E8E8; color: #000; }
+.selected {background-color:Yellow;}
+span.caption {width:100px;}
+span.dataDisplay {font-weight:bold;}

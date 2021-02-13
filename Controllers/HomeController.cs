@@ -29,13 +29,28 @@ namespace TestWork2021.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult setUrl(string setUrl,int id)
+        public IActionResult setUrl(string setUrl)
         {
-            //Метод отображает информацию на сайте по URL
-            productRepository.SaveWithSiteProduct(setUrl);
+
+            //небольшой обработчик правильности ввода что значение не может быть пустым и дожно содержать 
+            //строку вида https://nikopol.org
+
+              if (!string.IsNullOrEmpty(setUrl) && setUrl.Contains("https://nikopol.org"))
+                {
+                    //Метод отображает информацию на сайте по URL
+                    productRepository.SaveWithSiteProduct(setUrl);
+
+                    var MyModel = productRepository.GetProducts();
+                    return View(MyModel);
+                }
+                else
+                {
+                //Просто будет обновлятся страница
+                return RedirectToAction("Index");
+                }
+                      
+
             
-            var  MyModel = productRepository.GetProducts();
-            return View(MyModel);
         }
 
 
@@ -74,21 +89,6 @@ namespace TestWork2021.Controllers
             productRepository.DeleteProduct(new Product() { id = id });
             return RedirectToAction("Index");
         }
-
-        /// <summary>
-        /// //////////////////////////////
-        /// </summary>
-
-
-
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
-       
 
         public IActionResult Privacy()
         {

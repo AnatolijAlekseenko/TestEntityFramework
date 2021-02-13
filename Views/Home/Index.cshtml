@@ -1,11 +1,21 @@
 ﻿@using TestWork2021.Core
 @model IQueryable<Product>
+@*<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
 
+Пример ссылок на сайт:
+https://nikopol.org
+https://nikopol.org/g26721689-klej
+В случае если сайт не содержит https://nikopol.org то будет просто обновлена текущая страница
+или данные по умолчанию
 
 <form method="post" asp-action="setUrl">
-    <label>Укажите адрес сайта:</label><br />
-    <input type="text" name="setUrl" /><br /><br />
+    <label>Укажите адрес сайта:</label>
+    <input type="text" name="setUrl" />
     <input type="submit" value="загрузить данные по ссылке" />
+</form>
+
+<form method="post" asp-action="ProductsEdit">
+    <input type="submit" value="Добавить запись" />
 </form>
 
 <form method="post" asp-action="DelAllData">
@@ -13,42 +23,50 @@
 </form>
 
 
-        <center>"Текущие данные в базе данных"</center>
-
-    <div class="text-center">
-        @foreach (Product entity in Model)
-        {
-            <div>
-
-                <table border="1" width="100%" cellpadding="5">
-                    <tr>
-                        @*<th> "Номер товара"  </th>*@
-                        <th> "Наименование товара"  </th>
-                        <th>  "ССылка на изображение"</th>
-                    </tr>
-                    <tr>
-                        @*<td>@entity.sku </td>*@
-                        <td>@entity.naim </td>
-                        <td>@entity.url  </td>
-                    </tr>
-
-                </table>
 
 
-                <a asp-action="ProductsEdit" asp-route-id="@entity.id"></a>
-                <form method="post" asp-action="ProductsEdit">
-                    <input type="hidden" name="id" value="@entity.id" />
-                    <input type="submit" value="редактировать" />
-                </form>
+<center>"Текущие данные в базе данных"</center>
 
 
-                <form method="post" asp-action="ProductDelete">
-                    <input type="hidden" name="id" value="@entity.id" />
-                    <input type="submit" value="удалить" />
-                </form>
+@foreach (Product entity in Model)
+{
 
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+            @*<th> "Номер товара"  </th>*@
+            <th> "Наименование товара"  </th>
+            <th>  "Изображение"</th>
+        </tr>
+        <tr>
+            @*<td>@entity.sku </td>*@
+            <td>@entity.naim </td>
+            <td><img src=@entity.url></td>
 
-            </div>
-        }
-    </div>
+        </tr>
+
+    </table>
+
+    @*<a asp-action="ProductsEdit" asp-route-id="@entity.id"></a>*@
+
+    <body>
+        <table class="text">
+            <tr>
+                <td>
+                    <form method="post" asp-action="ProductsEdit">
+                        <input type="hidden" name="id" value="@entity.id" />
+                        <input type="submit" value="редактировать" />
+                    </form>
+                </td>
+                <td class="rightcol">
+                    <form method="post" asp-action="ProductDelete">
+                        <input type="hidden" name="id" value="@entity.id" />
+                        <input type="submit" value="удалить" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </body>
+
+}
+
 
