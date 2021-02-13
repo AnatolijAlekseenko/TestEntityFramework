@@ -1,0 +1,41 @@
+﻿@using TestWork2021.Core
+@model IQueryable<Product>
+
+<center>В базу данных загружены следующие данные</center>
+
+<div class="text-center">
+    @foreach (Product entity in Model)
+    {
+    <div>
+
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                @*<th> "Номер товара"  </th>*@
+                <th> "Наименование товара"  </th>
+                <th>  "ССылка на изображение"</th>
+            </tr>
+            <tr>
+                @*<td>@entity.sku </td>*@
+                <td>@entity.naim </td>
+                <td>@entity.url  </td>
+            </tr>
+
+        </table>
+
+
+        <a asp-action="ProductsEdit" asp-route-id="@entity.id"></a>
+        <form method="post" asp-action="ProductsEdit">
+            <input type="hidden" name="id" value="@entity.id" />
+            <input type="submit" value="редактировать" />
+        </form>
+
+
+        <form method="post" asp-action="ProductDelete">
+            <input type="hidden" name="id" value="@entity.id" />
+            <input type="submit" value="удалить" />
+        </form>
+
+
+    </div>
+    }
+</div>

@@ -1,0 +1,30 @@
+﻿@using TestWork2021.Core
+@model Product
+
+<div>
+    <h1>Редактировать статью</h1>
+    <div>
+        @*<form asp-controller="Product" asp-action="ProductsEdit" method="post">*@
+            <form asp-action="ProductEdit" method="post">
+                <input type="hidden" asp-for="id" />
+                <div asp-validation-summary="All"></div>
+
+                <div>
+                    <label asp-for="naim">Наименование</label>
+                    <input asp-for="naim" />
+                    <span asp-validation-for="naim"></span>
+                </div>
+                @*<div>
+                    <label asp-for="sku"></label>
+                    <textarea asp-for="sku"></textarea>
+                    <span asp-validation-for="sku"></span>
+                </div>*@
+                <div>
+                    <label asp-for="url">Ссылка на изображение</label>
+                    <textarea asp-for="url"></textarea>
+                    <span asp-validation-for="url"></span>
+                </div>
+                <input type="submit" value="Сохранить" />
+            </form>
+</div>
+</div>
