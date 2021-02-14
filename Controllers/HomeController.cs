@@ -22,6 +22,7 @@ namespace TestWork2021.Controllers
             //return View(MyModel);
         }
 
+        #region Метод в который загружает данные в базу исходя из введеной ссылки
         /// <summary>
         /// Метод в который загружает данные в базу исходя из введеной ссылки
         /// </summary>
@@ -48,11 +49,8 @@ namespace TestWork2021.Controllers
                 //Просто будет обновлятся страница
                 return RedirectToAction("Index");
                 }
-                      
-
-            
         }
-
+        #endregion
 
         private readonly ProductsRepository productRepository;
         public HomeController(ProductsRepository productRepository)

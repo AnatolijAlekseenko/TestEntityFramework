@@ -1,17 +1,17 @@
 ﻿@using TestWork2021.Core
 @model Product
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <div>
     <h1>Редактировать статью</h1>
     <div>
         @*<form asp-controller="Product" asp-action="ProductsEdit" method="post">*@
             <form asp-action="ProductEdit" method="post">
-                <input type="hidden" asp-for="id" />
+                <input type="hidden" asp-for="id" max-width: 280px />
                 <div asp-validation-summary="All"></div>
 
                 <div>
                     <label asp-for="naim">Наименование</label>
-                    <input asp-for="naim" />
+                    <input asp-for="naim" max-width: 280px />
                     <span asp-validation-for="naim"></span>
                 </div>
                 @*<div>

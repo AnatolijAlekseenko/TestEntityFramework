@@ -1,41 +1,41 @@
 ﻿@using TestWork2021.Core
 @model IQueryable<Product>
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <center>В базу данных загружены следующие данные</center>
 
 <div class="text-center">
-    @foreach (Product entity in Model)
-    {
-    <div>
 
-        <table border="1" width="100%" cellpadding="5">
+    <table border="1" width="100%" cellpadding="2" align="left">
+        <tr>
+            <th>Наименование товара</th>
+            <th>Изображение</th>
+        </tr>
+
+        @foreach (Product entity in Model)
+        {
             <tr>
-                @*<th> "Номер товара"  </th>*@
-                <th> "Наименование товара"  </th>
-                <th>  "Ссылка на изображение"</th>
-            </tr>
-            <tr>
-                @*<td>@entity.sku </td>*@
                 <td>@entity.naim </td>
-                <td>@entity.url  </td>
+                <td>@entity.url</td>
+            </tr>
+        }
+    </table>
+
+
+    @*<table border="1" width="100%" cellpadding="2" title="test">
+
+            <tr>
+                <th> "Наименование товара"  </th>
+                <th>  "Изображение"</th>
             </tr>
 
-        </table>
+            @foreach (Product entity in Model)
+            {
+
+                <td> @entity.naim </td>
+                <td> @entity.url  </td>
 
 
-        <a asp-action="ProductsEdit" asp-route-id="@entity.id"></a>
-        <form method="post" asp-action="ProductsEdit">
-            <input type="hidden" name="id" value="@entity.id" />
-            <input type="submit" value="редактировать" />
-        </form>
+            }
+        </table>*@
 
-
-        <form method="post" asp-action="ProductDelete">
-            <input type="hidden" name="id" value="@entity.id" />
-            <input type="submit" value="удалить" />
-        </form>
-
-
-    </div>
-    }
 </div>
