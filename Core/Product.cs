@@ -8,9 +8,10 @@ namespace TestWork2021.Core
 {
     public class Product
     {
-        public int id { get; set; }
-        public string sku { get; set; }
-        public string naim { get; set; }
-        public string url { get; set; }
+        public int Id { get; set; }
+        public string Sku { get; set; }
+        public string Naim { get; set; }
+        public string Url { get; set; }
+
     }
 }

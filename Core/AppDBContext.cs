@@ -18,7 +18,7 @@ namespace TestWork2021.Core
 
         public DbSet<Product> Product { get; set; }
 
-        //Дабавление информации из сайта при update-database
+        //Дабавление информации в базу при настройке миграции при update-database
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -29,6 +29,9 @@ namespace TestWork2021.Core
             builder.Entity<Product>().HasData(
                 Data
                 );
+            
+
+
         }
 
     }

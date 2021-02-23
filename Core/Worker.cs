@@ -22,7 +22,7 @@ namespace TestWork2021.Core
 				{
 					var product = new Product();
 
-					product.id = i+1; //Что б не с нуля начинался
+					product.Id = i+1; //Что б не с нуля начинался
 
 					var html = node.ChildNodes[i].InnerHtml;
 					var htmlDoc = new HtmlDocument();
@@ -30,7 +30,7 @@ namespace TestWork2021.Core
 
 					///Номер позиции
 					var SCU_ID = htmlDoc.DocumentNode.SelectNodes("//div[@class='b-product-gallery__sku']");
-					foreach (var nodeSCU_ID in SCU_ID) product.sku = nodeSCU_ID.InnerText;
+					foreach (var nodeSCU_ID in SCU_ID) product.Sku = nodeSCU_ID.InnerText;
 
 					///Наименование товара
 					HtmlNodeCollection title = htmlDoc.DocumentNode
@@ -38,9 +38,9 @@ namespace TestWork2021.Core
 
 					foreach (var nodeTitle in title)
 					{
-						product.naim = nodeTitle.Attributes["title"].Value;
+						product.Naim = nodeTitle.Attributes["title"].Value;
 
-						product.url = nodeTitle.Descendants("img").First().GetAttributeValue("longdesc", null);
+						product.Url = nodeTitle.Descendants("img").First().GetAttributeValue("longdesc", null);
 
 
 
@@ -51,12 +51,12 @@ namespace TestWork2021.Core
 
 
 
-					if (string.IsNullOrEmpty(product.url) && link != null)
+					if (string.IsNullOrEmpty(product.Url) && link != null)
 					{
 						foreach (var nodeLink in link)
 						{
 							//Console.WriteLine("-----" + nodeLink.InnerText);
-							product.url = nodeLink.Attributes["src"].Value;
+							product.Url = nodeLink.Attributes["src"].Value;
 						}
 					}
 

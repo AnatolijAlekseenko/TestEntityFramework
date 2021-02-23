@@ -1,0 +1,28 @@
+﻿@using TestWork2021.Core
+@model IQueryable<Product>
+
+<div class="text-center">
+    @foreach (Product entity in Model)
+    {
+        <div>
+            "Id товара" + @entity.Id
+            "Номер товара" + @entity.Sku
+            "Наименование товара" + @entity.Naim
+            "ССылка на изображение" + @entity.Url
+
+
+            <a asp-action="ProductsEdit" asp-route-id="@entity.Id">редактировать</a>
+            <form method="post"
+                  asp-action="ProductsEdit">
+                <input type="hidden" name="id" value="@entity.Id" />
+            </form>
+                      
+            <form method="post" asp-action="ProductDelete">
+                <input type="hidden" name="id" value="@entity.Id" />
+
+
+                <input type="submit" value="удалить" />
+            </form>
+        </div>
+    }
+</div>

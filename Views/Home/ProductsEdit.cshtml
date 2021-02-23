@@ -6,13 +6,13 @@
     <div>
         @*<form asp-controller="Product" asp-action="ProductsEdit" method="post">*@
             <form asp-action="ProductEdit" method="post">
-                <input type="hidden" asp-for="id" max-width: 280px />
+                <input type="hidden" asp-for="Id" />
                 <div asp-validation-summary="All"></div>
 
                 <div>
-                    <label asp-for="naim">Наименование</label>
-                    <input asp-for="naim" max-width: 280px />
-                    <span asp-validation-for="naim"></span>
+                    <label asp-for="Naim">Наименование</label>
+                    <input asp-for="Naim" />
+                    <span asp-validation-for="Naim"></span>
                 </div>
                 @*<div>
                     <label asp-for="sku"></label>
@@ -20,9 +20,9 @@
                     <span asp-validation-for="sku"></span>
                 </div>*@
                 <div>
-                    <label asp-for="url">Ссылка на изображение</label>
-                    <textarea asp-for="url"></textarea>
-                    <span asp-validation-for="url"></span>
+                    <label asp-for="Url">Ссылка на изображение</label>
+                    <textarea asp-for="Url"></textarea>
+                    <span asp-validation-for="Url"></span>
                 </div>
                 <input type="submit" value="Сохранить" />
             </form>

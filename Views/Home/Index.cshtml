@@ -22,36 +22,54 @@
     <form method="post" asp-action="DelAllData">
         <input type="submit" value="Очистить все данные в таблице" />
     </form>
-
+    
 
     <center>Текущие данные в базе данных</center>
 
-    <table border="1" width="100%" cellpadding="2" align="left">
-        <tr>
-            <th>Наименование товара  </th>
-            <th>Изображение</th>
-        </tr>
+    <style>
+        .column {
+            -webkit-column-width: 200px;
+            -moz-column-width: 200px;
+            column-width: 200px;
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column-count: 2; /*Количество колонок*/
+            -webkit-column-gap: 30px;
+            -moz-column-gap: 30px;
+            column-gap: 30px;
+            -webkit-column-rule: 1px solid #ccc;
+            -moz-column-rule: 1px solid #ccc;
+            column-rule: 1px solid #ccc;
+        }
+    </style>
 
-        @foreach (Product entity in Model)
-        {
-            <tr>
-                <td>@entity.naim </td>
-                <td><img src=@entity.url></td>
-            </tr>
+    <body>
+        <div class="column">
+            @foreach (Product entity in Model)
+            {
+
+                <img src=../Image/@entity.Url>
+                <p>@entity.Naim</p>
+
+                <table border="0" width="100%" cellpadding="1" align="left">
                     <tr>
                         <td>
                             <form method="post" asp-action="ProductsEdit">
-                                <input type="hidden" name="id" value="@entity.id" />
+                                <input type="hidden" name="id" value="@entity.Id" />
                                 <input type="submit" value="редактировать" />
                             </form>
                         </td>
                         <td class="rightcol">
                             <form method="post" asp-action="ProductDelete">
-                                <input type="hidden" name="id" value="@entity.id" />
+                                <input type="hidden" name="id" value="@entity.Id" />
                                 <input type="submit" value="удалить" />
                             </form>
                         </td>
                     </tr>
-        }
-    </table>
+                </table>
 
+                    }
+            </div>
+
+
+        </body>
